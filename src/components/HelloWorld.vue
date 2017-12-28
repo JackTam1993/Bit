@@ -115,13 +115,14 @@
       },
       initChart2 () {
         let myChart = echarts.init(this.$refs.echarts2)
-        // 基于准备好的dom，初始化echarts实例
         myChart.setOption(this.test2)
       }
     },
     mounted () {
       this.getMarketHistory(this.count)
-//      this.initChart2()
+      setTimeout(() => {
+        this.getMarketHistory(this.count)
+      }, 30000)  // get data every 30000ms
     },
     watch: {
       count (i) {
@@ -135,7 +136,6 @@
   }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   h1, h2 {
     font-weight: normal;
